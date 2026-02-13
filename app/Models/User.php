@@ -21,6 +21,7 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'avatar',
     ];
 
     /**
@@ -44,5 +45,14 @@ class User extends Authenticatable
             'email_verified_at' => 'datetime',
             'password' => 'hashed',
         ];
+    }
+
+    public function getAvatarUrlAttribute(): string
+    {
+        if ($this->avatar) {
+            return asset('storage/' . $this->avatar);
+        }
+        // Генерация аватара по умолчанию (буквы имени)
+        return 'https://ui-avatars.com/api/?name=' . urlencode($this->name) . '&background=random';
     }
 }

@@ -25,3 +25,6 @@ Route::post('/account/change-password', [AccountController::class,'changePass'])
 
 Route::get('/account/update', [AccountController::class,'showUpdate'])->name('update')->middleware('auth');
 Route::post('/account/update', [AccountController::class,'update'])->middleware('auth');
+
+Route::post('/account/update/avatar', [AccountController::class,'updateAvatar'])->name('updateava')->middleware('auth');
+Route::post('/account/update/avatar/delete', [AccountController::class,'deleteAvatar'])->name('deleteava')->middleware('auth');

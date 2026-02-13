@@ -8,6 +8,7 @@ use App\Http\Controllers\Controller;
 use app\Models\User;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Storage;
 
 class AccountController extends Controller
 {
@@ -55,5 +56,39 @@ class AccountController extends Controller
         }
         $user->save();
         return redirect()->route('account');
+    }
+
+    public function updateAvatar(Request $request)
+    {
+
+        $request->validate([
+            'avatar' => 'required|image|mimes:jpeg,png,jpg,gif,webp|max:2048'
+        ]);
+
+        $user = auth()->user();
+
+        // Удаляем старый аватар
+        if ($user->avatar) {
+            Storage::disk('public')->delete($user->avatar);
+        }
+
+        // Сохраняем новый
+        $path = $request->file('avatar')->store('avatars', 'public');
+        
+        $user->update(['avatar' => $path]);
+
+        return back()->with('success', 'Аватар обновлён!');
+    }
+
+    public function deleteAvatar()
+    {
+        $user = auth()->user();
+        
+        if ($user->avatar) {
+            Storage::disk('public')->delete($user->avatar);
+            $user->update(['avatar' => null]);
+        }
+
+        return back()->with('success', 'Аватар удалён');
     }
 }

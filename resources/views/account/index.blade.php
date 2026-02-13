@@ -5,6 +5,11 @@
 @section('content')
     <div class="profile-card">
         <h1>Личный кабинет</h1>
+        <div class="avatar-preview mb-4">
+            <img src="{{ auth()->user()->avatar_url }}" 
+                alt="Avatar" 
+                class="w-32 h-32 rounded-full object-cover border-4 border-gray-200">
+        </div>
 
         <div class="info">
             <div class="info-item">
