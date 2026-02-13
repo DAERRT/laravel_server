@@ -36,4 +36,24 @@ class AccountController extends Controller
 
         return redirect()->route('account')->with('success', 'Пароль изменён');
     }
+
+    public function showUpdate(){
+        $user = Auth::user();
+        return view("account.update", compact("user"));
+    }
+
+    public function update(Request $request){
+        $request->validate([
+            'name' => 'required|min:3|max:255',
+            'email' => 'required|email|max:255|unique:users,email,'.Auth::id(),
+        ]);
+        $user = Auth::user();
+        if ($user->name != $request->name ) {
+            $user->name = $request->name;
+        }if($user->email != $request->email){
+            $user->email = $request->email;
+        }
+        $user->save();
+        return redirect()->route('account');
+    }
 }

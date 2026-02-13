@@ -195,6 +195,7 @@
 }
 
 .form-login input[type="email"],
+.form-login input[type="text"],
 .form-login input[type="password"] {
     width: 100%;
     padding: 0.75rem 1rem;
@@ -207,6 +208,7 @@
 }
 
 .form-login input[type="email"]:focus,
+.form-login input[type="text"]:focus,
 .form-login input[type="password"]:focus {
     outline: none;
     border-color: #2563eb;
@@ -329,6 +331,7 @@
     }
 
     .form-login input[type="email"],
+    .form-login input[type="text"],
     .form-login input[type="password"] {
         background-color: #111827;
         border-color: #374151;
@@ -336,6 +339,7 @@
     }
 
     .form-login input[type="email"]:focus,
+    .form-login input[type="text"]:focus,
     .form-login input[type="password"]:focus {
         background-color: #1f2937;
         border-color: #60a5fa;
@@ -700,37 +704,54 @@
 }
 
 /* Кнопка выхода */
-.profile-card form:first-of-type button {
+.profile-card .button-logout {
     background: linear-gradient(145deg, #ef4444, #dc2626);
     color: white;
     box-shadow: 0 4px 6px rgba(220, 38, 38, 0.15);
 }
 
-.profile-card form:first-of-type button:hover {
+.profile-card .button-logout:hover {
     background: linear-gradient(145deg, #dc2626, #b91c1c);
     transform: translateY(-2px);
     box-shadow: 0 8px 12px rgba(220, 38, 38, 0.25);
 }
 
-.profile-card form:first-of-type button:active {
+.profile-card .button-logout:active {
     transform: translateY(0);
     box-shadow: 0 2px 4px rgba(220, 38, 38, 0.2);
 }
 
 /* Кнопка смены пароля */
-.profile-card form:last-of-type button {
+.profile-card .button-chagePass {
     background: linear-gradient(145deg, #3b82f6, #2563eb);
     color: white;
     box-shadow: 0 4px 6px rgba(37, 99, 235, 0.15);
 }
 
-.profile-card form:last-of-type button:hover {
+.profile-card .button-chagePass:hover {
     background: linear-gradient(145deg, #2563eb, #1d4ed8);
     transform: translateY(-2px);
     box-shadow: 0 8px 12px rgba(37, 99, 235, 0.25);
 }
 
-.profile-card form:last-of-type button:active {
+.profile-card .button-chagePass:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 4px rgba(37, 99, 235, 0.2);
+}
+
+.profile-card .button-update {
+    background: linear-gradient(145deg, #3bf6ae, #69d3b7);
+    color: white;
+    box-shadow: 0 4px 6px rgb(17, 81, 56);
+}
+
+.profile-card .button-update:hover {
+    background: linear-gradient(145deg, #219e6e, #0bbf7a);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 12px rgb(2, 51, 33);
+}
+
+.profile-card .button-update:active {
     transform: translateY(0);
     box-shadow: 0 2px 4px rgba(37, 99, 235, 0.2);
 }

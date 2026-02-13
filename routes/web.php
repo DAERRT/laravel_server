@@ -22,3 +22,6 @@ Route::get('/home', [HomeController::class,'index'])->name('home')->middleware('
 
 Route::get('/account/change-password', [AccountController::class,'showChangePass'])->name('changepass')->middleware('auth');
 Route::post('/account/change-password', [AccountController::class,'changePass'])->middleware('auth');
+
+Route::get('/account/update', [AccountController::class,'showUpdate'])->name('update')->middleware('auth');
+Route::post('/account/update', [AccountController::class,'update'])->middleware('auth');
